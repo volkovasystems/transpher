@@ -1,0 +1,29 @@
+{
+  "name": "transpher",
+  "description": "Transfer all properties.",
+  "main": "transpher.js",
+  "support": "transpher.support.js",
+  "deploy": "transpher.deploy.js",
+  "authors": [
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "transfer",
+    "all",
+    "property",
+    "transpher"
+  ],
+  "homepage": "https://github.com/volkovasystems/transpher",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ate": "^0.4.0",
+    "falzy": "^0.7.0"
+  }
+}
