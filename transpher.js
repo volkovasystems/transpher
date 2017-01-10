@@ -34,6 +34,9 @@
 			"file": "transpher.js",
 			"module": "transpher",
 			"author": "Richeve S. Bebedor",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+			],
 			"eMail": "richeve.bebedor@gmail.com",
 			"repository": "https://github.com/volkovasystems/transpher.git",
 			"test": "transpher-test.js",
