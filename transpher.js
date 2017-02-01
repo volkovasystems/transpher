@@ -83,9 +83,10 @@ const transpher = function transpher( source, destination ){
 		throw new Error( "invalid destination" );
 	}
 
-	Object.getOwnPropertyNames( source ).forEach( function onEachProperty( property ){
-		ate( property, source[ property ], destination );
-	} );
+	Object.getOwnPropertyNames( source )
+		.forEach( function onEachProperty( property ){
+			ate( property, source[ property ], destination );
+		} );
 
 	return destination;
 };
