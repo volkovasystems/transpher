@@ -1,13 +1,13 @@
 {
   "name": "transpher",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Transfer all properties.",
   "main": "transpher.js",
   "support": "transpher.support.js",
   "deploy": "transpher.deploy.js",
   "browser": "transpher.deploy.js",
   "scripts": {
-    "build": "babel transpher.js -o transpher.support.js && webpack",
+    "build": "babel transpher.js --out-file transpher.support.js --source-maps && webpack --progress",
     "test": "mocha transpher-test.js"
   },
   "repository": {
@@ -30,14 +30,14 @@
   },
   "homepage": "https://github.com/volkovasystems/transpher#readme",
   "dependencies": {
-    "ate": "^0.9.0",
-    "babel-runtime": "^6.22.0",
-    "falzy": "^0.11.0"
+    "ate": "^0.10.0",
+    "babel-runtime": "^6.23.0",
+    "falzy": "^0.13.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
-    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "source-map-loader": "^0.1.6",
     "webpack": "^2.2.1"
