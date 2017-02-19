@@ -1,7 +1,9 @@
 yarn add \
 babel-runtime \
 ate \
+depher \
 falzy \
+kein \
 --save && \
 yarn add \
 babel-cli \
@@ -13,5 +15,8 @@ webpack \
 --dev && \
 bower install \
 ate \
+depher \
 falzy \
---save
+kein \
+--save \
+--force-latest

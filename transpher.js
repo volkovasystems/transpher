@@ -46,20 +46,26 @@
 
 	@module-documentation:
 		Transfer all properties.
+
+		If disregard is true, it will disregard properties of destination with values already.
 	@end-module-documentation
 
 	@include:
 		{
 			"ate": "ate",
-			"falzy": "falzy"
+			"depher": "depher",
+			"falzy": "falzy",
+			"kein": "kein"
 		}
 	@end-include
 */
 
 const ate = require( "ate" );
+const depher = require( "depher" );
 const falzy = require( "falzy" );
+const kein = require( "kein" );
 
-const transpher = function transpher( source, destination ){
+const transpher = function transpher( source, destination, disregard ){
 	/*;
 		@meta-configuration:
 			{
@@ -70,7 +76,8 @@ const transpher = function transpher( source, destination ){
 				"destination:required": [
 					"function",
 					"object"
-				]
+				],
+				"disregard": "boolean"
 			}
 		@end-meta-configuration
 	*/
@@ -83,9 +90,16 @@ const transpher = function transpher( source, destination ){
 		throw new Error( "invalid destination" );
 	}
 
+	disregard = depher( arguments, BOOLEAN, false );
+
 	Object.getOwnPropertyNames( source )
 		.forEach( function onEachProperty( property ){
-			ate( property, source[ property ], destination );
+			if( !disregard ){
+				ate( property, source[ property ], destination );
+
+			}else if( !kein( destination, property ) ){
+				ate( property, source[ property ], destination );
+			}
 		} );
 
 	return destination;

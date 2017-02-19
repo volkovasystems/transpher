@@ -46,34 +46,41 @@
               
               	@module-documentation:
               		Transfer all properties.
+              
+              		If disregard is true, it will disregard properties of destination with values already.
               	@end-module-documentation
               
               	@include:
               		{
               			"ate": "ate",
-              			"falzy": "falzy"
+              			"depher": "depher",
+              			"falzy": "falzy",
+              			"kein": "kein"
               		}
               	@end-include
               */var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var ate = require("ate");
+var depher = require("depher");
 var falzy = require("falzy");
+var kein = require("kein");
 
-var transpher = function transpher(source, destination) {
+var transpher = function transpher(source, destination, disregard) {
 	/*;
-                                                         	@meta-configuration:
-                                                         		{
-                                                         			"source:required": [
-                                                         				"function",
-                                                         				"object"
-                                                         			],
-                                                         			"destination:required": [
-                                                         				"function",
-                                                         				"object"
-                                                         			]
-                                                         		}
-                                                         	@end-meta-configuration
-                                                         */
+                                                                    	@meta-configuration:
+                                                                    		{
+                                                                    			"source:required": [
+                                                                    				"function",
+                                                                    				"object"
+                                                                    			],
+                                                                    			"destination:required": [
+                                                                    				"function",
+                                                                    				"object"
+                                                                    			],
+                                                                    			"disregard": "boolean"
+                                                                    		}
+                                                                    	@end-meta-configuration
+                                                                    */
 
 	if (falzy(source)) {
 		throw new Error("invalid source");
@@ -83,9 +90,16 @@ var transpher = function transpher(source, destination) {
 		throw new Error("invalid destination");
 	}
 
+	disregard = depher(arguments, BOOLEAN, false);
+
 	(0, _getOwnPropertyNames2.default)(source).
 	forEach(function onEachProperty(property) {
-		ate(property, source[property], destination);
+		if (!disregard) {
+			ate(property, source[property], destination);
+
+		} else if (!kein(destination, property)) {
+			ate(property, source[property], destination);
+		}
 	});
 
 	return destination;
