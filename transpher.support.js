@@ -97,7 +97,7 @@ var transpher = function transpher(source, destination, disregard) {
 		if (!disregard) {
 			ate(property, source[property], destination);
 
-		} else if (!kein(destination, property)) {
+		} else if (!kein(property, destination)) {
 			ate(property, source[property], destination);
 		}
 	});
