@@ -1,6 +1,6 @@
 {
   "name": "transpher",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "Transfer all properties.",
   "main": "transpher.deploy.js",
   "support": "transpher.support.js",
@@ -24,9 +24,9 @@
     "tests"
   ],
   "dependencies": {
-    "ate": "^0.16.0",
-    "depher": "^0.28.0",
+    "coprop": "^0.0.0",
     "falzy": "^0.19.0",
-    "kein": "^0.17.0"
+    "kein": "^0.17.0",
+    "wichevr": "^0.8.0"
   }
 }

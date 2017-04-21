@@ -52,18 +52,18 @@
 
 	@include:
 		{
-			"ate": "ate",
-			"depher": "depher",
+			"coprop": "coprop",
 			"falzy": "falzy",
-			"kein": "kein"
+			"kein": "kein",
+			"wichevr": "wichevr"
 		}
 	@end-include
 */
 
-const ate = require( "ate" );
-const depher = require( "depher" );
+const coprop = require( "coprop" );
 const falzy = require( "falzy" );
 const kein = require( "kein" );
+const wichevr = require( "wichevr" );
 
 const transpher = function transpher( source, destination, disregard ){
 	/*;
@@ -90,15 +90,15 @@ const transpher = function transpher( source, destination, disregard ){
 		throw new Error( "invalid destination" );
 	}
 
-	disregard = depher( arguments, BOOLEAN, false );
+	disregard = wichevr( disregard, false );
 
 	Object.getOwnPropertyNames( source )
 		.forEach( function onEachProperty( property ){
 			if( !disregard ){
-				ate( property, source[ property ], destination );
+				coprop( property, source, destination );
 
 			}else if( !kein( property, destination ) ){
-				ate( property, source[ property ], destination );
+				coprop( property, source, destination );
 			}
 		} );
 

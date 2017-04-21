@@ -52,18 +52,18 @@
               
               	@include:
               		{
-              			"ate": "ate",
-              			"depher": "depher",
+              			"coprop": "coprop",
               			"falzy": "falzy",
-              			"kein": "kein"
+              			"kein": "kein",
+              			"wichevr": "wichevr"
               		}
               	@end-include
               */var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
-var ate = require("ate");
-var depher = require("depher");
+var coprop = require("coprop");
 var falzy = require("falzy");
 var kein = require("kein");
+var wichevr = require("wichevr");
 
 var transpher = function transpher(source, destination, disregard) {
 	/*;
@@ -90,15 +90,15 @@ var transpher = function transpher(source, destination, disregard) {
 		throw new Error("invalid destination");
 	}
 
-	disregard = depher(arguments, BOOLEAN, false);
+	disregard = wichevr(disregard, false);
 
 	(0, _getOwnPropertyNames2.default)(source).
 	forEach(function onEachProperty(property) {
 		if (!disregard) {
-			ate(property, source[property], destination);
+			coprop(property, source, destination);
 
 		} else if (!kein(property, destination)) {
-			ate(property, source[property], destination);
+			coprop(property, source, destination);
 		}
 	});
 

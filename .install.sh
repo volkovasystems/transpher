@@ -1,9 +1,9 @@
 yarn add \
 babel-runtime \
-ate \
-depher \
+coprop \
 falzy \
 kein \
+wichevr \
 --save && \
 yarn add \
 babel-cli \
@@ -14,9 +14,9 @@ source-map-loader \
 webpack \
 --dev && \
 bower install \
-ate \
-depher \
+coprop \
 falzy \
 kein \
+wichevr \
 --save \
 --force-latest
