@@ -58,7 +58,7 @@
               			"wichevr": "wichevr"
               		}
               	@end-include
-              */var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+              */var _getOwnPropertySymbols = require("babel-runtime/core-js/object/get-own-property-symbols");var _getOwnPropertySymbols2 = _interopRequireDefault(_getOwnPropertySymbols);var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var coprop = require("coprop");
 var falzy = require("falzy");
@@ -93,6 +93,7 @@ var transpher = function transpher(source, destination, disregard) {
 	disregard = wichevr(disregard, false);
 
 	(0, _getOwnPropertyNames2.default)(source).
+	concat((0, _getOwnPropertySymbols2.default)(source)).
 	forEach(function onEachProperty(property) {
 		if (!disregard) {
 			coprop(property, source, destination);

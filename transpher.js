@@ -93,6 +93,7 @@ const transpher = function transpher( source, destination, disregard ){
 	disregard = wichevr( disregard, false );
 
 	Object.getOwnPropertyNames( source )
+		.concat( Object.getOwnPropertySymbols( source ) )
 		.forEach( function onEachProperty( property ){
 			if( !disregard ){
 				coprop( property, source, destination );
