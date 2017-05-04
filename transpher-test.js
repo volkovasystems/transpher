@@ -1,8 +1,10 @@
 "use strict";
 
+const assert = require( "assert" );
 const transpher = require( "./transpher.js" );
 
-console.log( transpher( { "name": "simple" }, { "type": "ok" } ) );
+assert.deepEqual( transpher( { "name": "simple" }, { "type": "ok" } ), { "type": "ok", "name": "simple" } );
+assert.deepEqual( transpher( { "hello": "world" }, { "hello": "yeah" } ), { "hello": "world" } );
+assert.deepEqual( transpher( { "hello": "world" }, { "hello": "yeah" }, true ), { "hello": "yeah" } );
 
-console.log( transpher( { "hello": "world" }, { "hello": "yeah" } ) );
-console.log( transpher( { "hello": "world" }, { "hello": "yeah" }, true ) );
+console.log( "ok" );
