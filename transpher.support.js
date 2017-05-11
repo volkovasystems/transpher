@@ -47,7 +47,9 @@
               	@module-documentation:
               		Transfer all properties.
               
-              		If disregard is true, it will disregard properties of destination with values already.
+              		This will transpher all number and string own properties.
+              
+              		If disregard is true, it will disregard properties of target with values already.
               	@end-module-documentation
               
               	@include:
@@ -58,52 +60,51 @@
               			"wichevr": "wichevr"
               		}
               	@end-include
-              */var _getOwnPropertySymbols = require("babel-runtime/core-js/object/get-own-property-symbols");var _getOwnPropertySymbols2 = _interopRequireDefault(_getOwnPropertySymbols);var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+              */var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var coprop = require("coprop");
 var falzy = require("falzy");
 var kein = require("kein");
 var wichevr = require("wichevr");
 
-var transpher = function transpher(source, destination, disregard) {
+var transpher = function transpher(source, target, disregard) {
 	/*;
-                                                                    	@meta-configuration:
-                                                                    		{
-                                                                    			"source:required": [
-                                                                    				"function",
-                                                                    				"object"
-                                                                    			],
-                                                                    			"destination:required": [
-                                                                    				"function",
-                                                                    				"object"
-                                                                    			],
-                                                                    			"disregard": "boolean"
-                                                                    		}
-                                                                    	@end-meta-configuration
-                                                                    */
+                                                               	@meta-configuration:
+                                                               		{
+                                                               			"source:required": [
+                                                               				"function",
+                                                               				"object"
+                                                               			],
+                                                               			"target:required": [
+                                                               				"function",
+                                                               				"object"
+                                                               			],
+                                                               			"disregard": "boolean"
+                                                               		}
+                                                               	@end-meta-configuration
+                                                               */
 
 	if (falzy(source)) {
 		throw new Error("invalid source");
 	}
 
-	if (falzy(destination)) {
-		throw new Error("invalid destination");
+	if (falzy(target)) {
+		throw new Error("invalid target");
 	}
 
 	disregard = wichevr(disregard, false);
 
 	(0, _getOwnPropertyNames2.default)(source).
-	concat((0, _getOwnPropertySymbols2.default)(source)).
 	forEach(function onEachProperty(property) {
 		if (!disregard) {
-			coprop(property, source, destination);
+			coprop(property, source, target);
 
-		} else if (!kein(property, destination)) {
-			coprop(property, source, destination);
+		} else if (!kein(property, target)) {
+			coprop(property, source, target);
 		}
 	});
 
-	return destination;
+	return target;
 };
 
 module.exports = transpher;

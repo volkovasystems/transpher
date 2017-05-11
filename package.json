@@ -1,6 +1,6 @@
 {
   "name": "transpher",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "description": "Transfer all properties.",
   "main": "transpher.js",
   "support": "transpher.support.js",

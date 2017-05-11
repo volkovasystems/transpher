@@ -47,7 +47,9 @@
 	@module-documentation:
 		Transfer all properties.
 
-		If disregard is true, it will disregard properties of destination with values already.
+		This will transpher all number and string own properties.
+
+		If disregard is true, it will disregard properties of target with values already.
 	@end-module-documentation
 
 	@include:
@@ -65,7 +67,7 @@ const falzy = require( "falzy" );
 const kein = require( "kein" );
 const wichevr = require( "wichevr" );
 
-const transpher = function transpher( source, destination, disregard ){
+const transpher = function transpher( source, target, disregard ){
 	/*;
 		@meta-configuration:
 			{
@@ -73,7 +75,7 @@ const transpher = function transpher( source, destination, disregard ){
 					"function",
 					"object"
 				],
-				"destination:required": [
+				"target:required": [
 					"function",
 					"object"
 				],
@@ -86,24 +88,23 @@ const transpher = function transpher( source, destination, disregard ){
 		throw new Error( "invalid source" );
 	}
 
-	if( falzy( destination ) ){
-		throw new Error( "invalid destination" );
+	if( falzy( target ) ){
+		throw new Error( "invalid target" );
 	}
 
 	disregard = wichevr( disregard, false );
 
 	Object.getOwnPropertyNames( source )
-		.concat( Object.getOwnPropertySymbols( source ) )
 		.forEach( function onEachProperty( property ){
 			if( !disregard ){
-				coprop( property, source, destination );
+				coprop( property, source, target );
 
-			}else if( !kein( property, destination ) ){
-				coprop( property, source, destination );
+			}else if( !kein( property, target ) ){
+				coprop( property, source, target );
 			}
 		} );
 
-	return destination;
+	return target;
 };
 
 module.exports = transpher;
