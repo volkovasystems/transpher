@@ -1,8 +1,33 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<script
-			type="application/javascript"
-			src="./transpher.deploy.js">
-		</script>
+		<title>transpher unit test</title>
+
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+
+		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+
+		<script type="application/javascript" src="./transpher.deploy.js"></script>
 	</head>
+
+	<body>
+		<div id="qunit"></div>
+
+		<div id="qunit-fixture"></div>
+
+		<script type="application/javascript">
+			QUnit.test( "transpher unit test", function( assert ) {
+
+				assert.deepEqual( transpher( { "name": "simple" }, { "type": "ok" } ),
+					{ "type": "ok", "name": "simple" }, "should be deeply equal" );
+
+				assert.deepEqual( transpher( { "hello": "world" }, { "hello": "yeah" } ),
+					{ "hello": "world" }, "should be deeply equal" );
+
+				assert.deepEqual( transpher( { "hello": "world" }, { "hello": "yeah" }, true ),
+					{ "hello": "yeah" }, "should be deeply equal" );
+					
+			} );
+		</script>
+	</body>
 </html>
