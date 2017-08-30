@@ -1,0 +1,87 @@
+{
+	"state": {
+		"passed": 1,
+		"failed": 0,
+		"skipped": 0
+	},
+	"start": "2017-08-30T04:36:35.629Z",
+	"end": "2017-08-30T04:37:11.399Z",
+	"capabilities": {
+		"browserName": "chrome",
+		"chromeOptions": {
+			"args": [
+				"disable-gpu",
+				"headless"
+			]
+		},
+		"proxy": {
+			"proxyType": "direct"
+		}
+	},
+	"host": "127.0.0.1",
+	"port": 4444,
+	"baseUrl": "http://localhost",
+	"framework": "mocha",
+	"mochaOpts": {
+		"timeout": 10000,
+		"ui": "bdd",
+		"slow": 0
+	},
+	"suites": [
+		{
+			"name": "transpher",
+			"duration": 0,
+			"start": "2017-08-30T04:37:11.097Z",
+			"tests": [],
+			"hooks": []
+		},
+		{
+			"name": "transpher",
+			"duration": 132,
+			"start": "2017-08-30T04:37:11.097Z",
+			"end": "2017-08-30T04:37:11.229Z",
+			"tests": [],
+			"hooks": [
+				{
+					"start": "2017-08-30T04:37:11.099Z",
+					"end": "2017-08-30T04:37:11.099Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "transpher",
+					"associatedTest": "should transfer all properties of source to target"
+				},
+				{
+					"start": "2017-08-30T04:37:11.227Z",
+					"end": "2017-08-30T04:37:11.227Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "transpher",
+					"associatedTest": "should transfer all properties of source to target"
+				},
+				{
+					"start": "2017-08-30T04:37:11.229Z",
+					"end": "2017-08-30T04:37:11.229Z",
+					"duration": 0,
+					"title": "\"after all\" hook",
+					"associatedSuite": "transpher"
+				}
+			]
+		},
+		{
+			"name": "`transpher( source, target )`",
+			"duration": 130,
+			"start": "2017-08-30T04:37:11.098Z",
+			"end": "2017-08-30T04:37:11.228Z",
+			"tests": [
+				{
+					"name": "should transfer all properties of source to target",
+					"start": "2017-08-30T04:37:11.098Z",
+					"end": "2017-08-30T04:37:11.227Z",
+					"duration": 129,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		}
+	]
+}

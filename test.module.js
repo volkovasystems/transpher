@@ -35,6 +35,10 @@
 			"module": "test",
 			"author": "Richeve S. Bebedor",
 			"eMail": "richeve.bebedor@gmail.com",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+				"Vinse Vinalon <vinsevinalon@gmail.com>"
+			],
 			"repository": "https://github.com/volkovasystems/transpher.git"
 		}
 	@end-test-configuration
@@ -67,28 +71,87 @@ const path = require( "path" );
 
 
 //: @server:
-
 describe( "transpher", ( ) => {
 
-} );
+	describe( "`transpher( source, target )`", ( ) => {
+		it( "should transfer all properties of source to target", ( ) => {
+			let source = {
+				"hello": "world"
+			};
 
+			let target = {
+				"property": "value"
+			};
+
+			let result = transpher( source, target );
+
+			assert.equal( target, result );
+
+			assert.deepEqual( result, { "hello": "world", "property": "value" } );
+		} );
+	} );
+
+} );
 //: @end-server
 
 
 //: @client:
-
 describe( "transpher", ( ) => {
 
+	describe( "`transpher( source, target )`", ( ) => {
+		it( "should transfer all properties of source to target", ( ) => {
+			let source = {
+				"hello": "world"
+			};
+
+			let target = {
+				"property": "value"
+			};
+
+			let result = transpher( source, target );
+
+			assert.equal( target, result );
+
+			assert.deepEqual( result, { "hello": "world", "property": "value" } );
+		} );
+	} );
 
 } );
-
 //: @end-client
 
 
 //: @bridge:
-
 describe( "transpher", ( ) => {
 
-} );
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
 
+	describe( "`transpher( source, target )`", ( ) => {
+		it( "should transfer all properties of source to target", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					let source = {
+						"hello": "world"
+					};
+
+					let target = {
+						"property": "value"
+					};
+
+					let result = transpher( source, target );
+
+					return JSON.stringify( result );
+				}
+
+			).value;
+			//: @end-ignore
+
+			result = JSON.parse( result );
+
+			assert.deepEqual( result, { "hello": "world", "property": "value" } );
+		} );
+	} );
+
+} );
 //: @end-bridge

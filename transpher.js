@@ -30,8 +30,8 @@
 	@module-configuration:
 		{
 			"package": "transpher",
-			"path": "transpher/transpher.js",
-			"file": "transpher.js",
+			"path": "transpher/transpher.module.js",
+			"file": "transpher.module.js",
 			"module": "transpher",
 			"author": "Richeve S. Bebedor",
 			"eMail": "richeve.bebedor@gmail.com",
@@ -40,7 +40,7 @@
 				"Vinse Vinalon <vinsevinalon@gmail.com>"
 			],
 			"repository": "https://github.com/volkovasystems/transpher.git",
-			"test": "transpher-test.js",
+			"test": "test.module.js",
 			"global": true
 		}
 	@end-module-configuration
@@ -57,8 +57,7 @@
 		{
 			"coprop": "coprop",
 			"falzy": "falzy",
-			"kein": "kein",
-			"wichevr": "wichevr"
+			"kein": "kein"
 		}
 	@end-include
 */
@@ -66,7 +65,6 @@
 const coprop = require( "coprop" );
 const falzy = require( "falzy" );
 const kein = require( "kein" );
-const wichevr = require( "wichevr" );
 
 const transpher = function transpher( source, target, disregard ){
 	/*;
@@ -93,17 +91,20 @@ const transpher = function transpher( source, target, disregard ){
 		throw new Error( "invalid target" );
 	}
 
-	disregard = wichevr( disregard, false );
+	disregard = disregard === true;
 
-	Object.getOwnPropertyNames( source )
-		.forEach( function onEachProperty( property ){
-			if( !disregard ){
-				coprop( property, source, target );
+	let propertyList = Object.getOwnPropertyNames( source );
+	let index = propertyList.length;
+	while( index-- ){
+		let property = propertyList[ index ];
 
-			}else if( !kein( property, target ) ){
-				coprop( property, source, target );
-			}
-		} );
+		if( !disregard ){
+			coprop( property, source, target );
+
+		}else if( !kein( property, target ) ){
+			coprop( property, source, target );
+		}
+	}
 
 	return target;
 };

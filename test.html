@@ -6,6 +6,8 @@
 		<title>test:transpher</title>
 
 		<link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
+
+		<script type="application/javascript" src="./transpher.deploy.js"></script>
 	</head>
 
 	<body>
@@ -14,7 +16,10 @@
 		<script type="application/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
 
 		<script type="application/javascript">
-			mocha.setup( "bdd" );
+			mocha.setup( {
+				"ui": "bdd",
+				"slow": 0
+			} );
 		</script>
 
 		<script type="application/javascript" src="./test.deploy.js"></script>

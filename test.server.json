@@ -1,16 +1,32 @@
 {
-  "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
-    "pending": 0,
-    "failures": 0,
-    "start": "2017-08-10T11:21:33.040Z",
-    "end": "2017-08-10T11:21:33.040Z",
-    "duration": 0
-  },
-  "tests": [],
-  "pending": [],
-  "failures": [],
-  "passes": []
+	"stats": {
+		"suites": 2,
+		"tests": 1,
+		"passes": 1,
+		"pending": 0,
+		"failures": 0,
+		"start": "2017-08-30T04:36:34.295Z",
+		"end": "2017-08-30T04:36:34.305Z",
+		"duration": 10
+	},
+	"tests": [
+		{
+			"title": "should transfer all properties of source to target",
+			"fullTitle": "transpher `transpher( source, target )` should transfer all properties of source to target",
+			"duration": 7,
+			"currentRetry": 0,
+			"err": {}
+		}
+	],
+	"pending": [],
+	"failures": [],
+	"passes": [
+		{
+			"title": "should transfer all properties of source to target",
+			"fullTitle": "transpher `transpher( source, target )` should transfer all properties of source to target",
+			"duration": 7,
+			"currentRetry": 0,
+			"err": {}
+		}
+	]
 }

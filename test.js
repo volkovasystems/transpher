@@ -35,6 +35,10 @@
 			"module": "test",
 			"author": "Richeve S. Bebedor",
 			"eMail": "richeve.bebedor@gmail.com",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+				"Vinse Vinalon <vinsevinalon@gmail.com>"
+			],
 			"repository": "https://github.com/volkovasystems/transpher.git"
 		}
 	@end-test-configuration
@@ -63,11 +67,27 @@ const transpher = require( "./transpher.js" );
 
 
 //: @server:
-
 describe( "transpher", ( ) => {
 
-} );
+	describe( "`transpher( source, target )`", ( ) => {
+		it( "should transfer all properties of source to target", ( ) => {
+			let source = {
+				"hello": "world"
+			};
 
+			let target = {
+				"property": "value"
+			};
+
+			let result = transpher( source, target );
+
+			assert.equal( target, result );
+
+			assert.deepEqual( result, { "hello": "world", "property": "value" } );
+		} );
+	} );
+
+} );
 //: @end-server
 
 
