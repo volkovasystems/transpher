@@ -1,113 +1,114 @@
 "use strict";
 
 /*;
-              	@module-license:
-              		The MIT License (MIT)
-              		@mit-license
-              
-              		Copyright (@c) 2017 Richeve Siodina Bebedor
-              		@email: richeve.bebedor@gmail.com
-              
-              		Permission is hereby granted, free of charge, to any person obtaining a copy
-              		of this software and associated documentation files (the "Software"), to deal
-              		in the Software without restriction, including without limitation the rights
-              		to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-              		copies of the Software, and to permit persons to whom the Software is
-              		furnished to do so, subject to the following conditions:
-              
-              		The above copyright notice and this permission notice shall be included in all
-              		copies or substantial portions of the Software.
-              
-              		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-              		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-              		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-              		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-              		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-              		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-              		SOFTWARE.
-              	@end-module-license
-              
-              	@module-configuration:
-              		{
-              			"package": "transpher",
-              			"path": "transpher/transpher.js",
-              			"file": "transpher.js",
-              			"module": "transpher",
-              			"author": "Richeve S. Bebedor",
-              			"eMail": "richeve.bebedor@gmail.com",
-              			"contributors": [
-              				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
-              				"Vinse Vinalon <vinsevinalon@gmail.com>"
-              			],
-              			"repository": "https://github.com/volkovasystems/transpher.git",
-              			"test": "transpher-test.js",
-              			"global": true
-              		}
-              	@end-module-configuration
-              
-              	@module-documentation:
-              		Transfer all properties.
-              
-              		This will transpher all number and string own properties.
-              
-              		If disregard is true, it will disregard properties of target with values already.
-              	@end-module-documentation
-              
-              	@include:
-              		{
-              			"coprop": "coprop",
-              			"falzy": "falzy",
-              			"kein": "kein",
-              			"wichevr": "wichevr"
-              		}
-              	@end-include
-              */var _getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	@module-license:
+		The MIT License (MIT)
+		@mit-license
 
-var coprop = require("coprop");
-var falzy = require("falzy");
-var kein = require("kein");
-var wichevr = require("wichevr");
+		Copyright (@c) 2017 Richeve Siodina Bebedor
+		@email: richeve.bebedor@gmail.com
 
-var transpher = function transpher(source, target, disregard) {
-	/*;
-                                                               	@meta-configuration:
-                                                               		{
-                                                               			"source:required": [
-                                                               				"function",
-                                                               				"object"
-                                                               			],
-                                                               			"target:required": [
-                                                               				"function",
-                                                               				"object"
-                                                               			],
-                                                               			"disregard": "boolean"
-                                                               		}
-                                                               	@end-meta-configuration
-                                                               */
+		Permission is hereby granted, free of charge, to any person obtaining a copy
+		of this software and associated documentation files (the "Software"), to deal
+		in the Software without restriction, including without limitation the rights
+		to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+		copies of the Software, and to permit persons to whom the Software is
+		furnished to do so, subject to the following conditions:
 
-	if (falzy(source)) {
-		throw new Error("invalid source");
-	}
+		The above copyright notice and this permission notice shall be included in all
+		copies or substantial portions of the Software.
 
-	if (falzy(target)) {
-		throw new Error("invalid target");
-	}
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+		SOFTWARE.
+	@end-module-license
 
-	disregard = wichevr(disregard, false);
-
-	(0, _getOwnPropertyNames2.default)(source).
-	forEach(function onEachProperty(property) {
-		if (!disregard) {
-			coprop(property, source, target);
-
-		} else if (!kein(property, target)) {
-			coprop(property, source, target);
+	@module-configuration:
+		{
+			"package": "transpher",
+			"path": "transpher/transpher.module.js",
+			"file": "transpher.module.js",
+			"module": "transpher",
+			"author": "Richeve S. Bebedor",
+			"eMail": "richeve.bebedor@gmail.com",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+				"Vinse Vinalon <vinsevinalon@gmail.com>"
+			],
+			"repository": "https://github.com/volkovasystems/transpher.git",
+			"test": "test.module.js",
+			"global": true
 		}
-	});
+	@end-module-configuration
 
-	return target;
+	@module-documentation:
+		Transfer all properties.
+
+		This will transpher all number and string own properties.
+
+		If disregard is true, it will disregard properties of target with values already.
+	@end-module-documentation
+
+	@include:
+		{
+			"coprop": "coprop",
+			"falzy": "falzy",
+			"kein": "kein"
+		}
+	@end-include
+*/var _getOwnPropertyNames=require("babel-runtime/core-js/object/get-own-property-names");var _getOwnPropertyNames2=_interopRequireDefault(_getOwnPropertyNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
+
+var coprop=require("coprop");
+var falzy=require("falzy");
+var kein=require("kein");
+
+var transpher=function transpher(source,target,disregard){
+/*;
+		@meta-configuration:
+			{
+				"source:required": [
+					"function",
+					"object"
+				],
+				"target:required": [
+					"function",
+					"object"
+				],
+				"disregard": "boolean"
+			}
+		@end-meta-configuration
+	*/
+
+if(falzy(source)){
+throw new Error("invalid source");
+}
+
+if(falzy(target)){
+throw new Error("invalid target");
+}
+
+disregard=disregard===true;
+
+var propertyList=(0,_getOwnPropertyNames2.default)(source);
+var index=propertyList.length;
+while(index--){
+var property=propertyList[index];
+
+if(!disregard){
+coprop(property,source,target);
+
+}else if(!kein(property,target)){
+coprop(property,source,target);
+}
+}
+
+return target;
 };
 
-module.exports = transpher;
-
+module.exports=transpher;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRyYW5zcGhlci5zdXBwb3J0LmpzIl0sIm5hbWVzIjpbImNvcHJvcCIsInJlcXVpcmUiLCJmYWx6eSIsImtlaW4iLCJ0cmFuc3BoZXIiLCJzb3VyY2UiLCJ0YXJnZXQiLCJkaXNyZWdhcmQiLCJFcnJvciIsInByb3BlcnR5TGlzdCIsImluZGV4IiwibGVuZ3RoIiwicHJvcGVydHkiLCJtb2R1bGUiLCJleHBvcnRzIl0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUE4REEsR0FBTUEsUUFBU0MsUUFBUyxRQUFULENBQWY7QUFDQSxHQUFNQyxPQUFRRCxRQUFTLE9BQVQsQ0FBZDtBQUNBLEdBQU1FLE1BQU9GLFFBQVMsTUFBVCxDQUFiOztBQUVBLEdBQU1HLFdBQVksUUFBU0EsVUFBVCxDQUFvQkMsTUFBcEIsQ0FBNEJDLE1BQTVCLENBQW9DQyxTQUFwQyxDQUErQztBQUNoRTs7Ozs7Ozs7Ozs7Ozs7OztBQWdCQSxHQUFJTCxNQUFPRyxNQUFQLENBQUosQ0FBcUI7QUFDcEIsS0FBTSxJQUFJRyxNQUFKLENBQVcsZ0JBQVgsQ0FBTjtBQUNBOztBQUVELEdBQUlOLE1BQU9JLE1BQVAsQ0FBSixDQUFxQjtBQUNwQixLQUFNLElBQUlFLE1BQUosQ0FBVyxnQkFBWCxDQUFOO0FBQ0E7O0FBRURELFVBQVlBLFlBQWMsSUFBMUI7O0FBRUEsR0FBSUUsY0FBZSxrQ0FBNEJKLE1BQTVCLENBQW5CO0FBQ0EsR0FBSUssT0FBUUQsYUFBYUUsTUFBekI7QUFDQSxNQUFPRCxPQUFQLENBQWdCO0FBQ2YsR0FBSUUsVUFBV0gsYUFBY0MsS0FBZCxDQUFmOztBQUVBLEdBQUksQ0FBQ0gsU0FBTCxDQUFnQjtBQUNmUCxPQUFRWSxRQUFSLENBQWtCUCxNQUFsQixDQUEwQkMsTUFBMUI7O0FBRUEsQ0FIRCxJQUdNLElBQUksQ0FBQ0gsS0FBTVMsUUFBTixDQUFnQk4sTUFBaEIsQ0FBTCxDQUErQjtBQUNwQ04sT0FBUVksUUFBUixDQUFrQlAsTUFBbEIsQ0FBMEJDLE1BQTFCO0FBQ0E7QUFDRDs7QUFFRCxNQUFPQSxPQUFQO0FBQ0EsQ0F6Q0Q7O0FBMkNBTyxPQUFPQyxPQUFQLENBQWlCVixTQUFqQiIsImZpbGUiOiJ0cmFuc3BoZXIuc3VwcG9ydC5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xuXG4vKjtcblx0QG1vZHVsZS1saWNlbnNlOlxuXHRcdFRoZSBNSVQgTGljZW5zZSAoTUlUKVxuXHRcdEBtaXQtbGljZW5zZVxuXG5cdFx0Q29weXJpZ2h0IChAYykgMjAxNyBSaWNoZXZlIFNpb2RpbmEgQmViZWRvclxuXHRcdEBlbWFpbDogcmljaGV2ZS5iZWJlZG9yQGdtYWlsLmNvbVxuXG5cdFx0UGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuXHRcdG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcblx0XHRpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG5cdFx0dG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuXHRcdGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuXHRcdGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG5cblx0XHRUaGUgYWJvdmUgY29weXJpZ2h0IG5vdGljZSBhbmQgdGhpcyBwZXJtaXNzaW9uIG5vdGljZSBzaGFsbCBiZSBpbmNsdWRlZCBpbiBhbGxcblx0XHRjb3BpZXMgb3Igc3Vic3RhbnRpYWwgcG9ydGlvbnMgb2YgdGhlIFNvZnR3YXJlLlxuXG5cdFx0VEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuXHRcdElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuXHRcdEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuXHRcdEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcblx0XHRMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuXHRcdE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG5cdFx0U09GVFdBUkUuXG5cdEBlbmQtbW9kdWxlLWxpY2Vuc2VcblxuXHRAbW9kdWxlLWNvbmZpZ3VyYXRpb246XG5cdFx0e1xuXHRcdFx0XCJwYWNrYWdlXCI6IFwidHJhbnNwaGVyXCIsXG5cdFx0XHRcInBhdGhcIjogXCJ0cmFuc3BoZXIvdHJhbnNwaGVyLm1vZHVsZS5qc1wiLFxuXHRcdFx0XCJmaWxlXCI6IFwidHJhbnNwaGVyLm1vZHVsZS5qc1wiLFxuXHRcdFx0XCJtb2R1bGVcIjogXCJ0cmFuc3BoZXJcIixcblx0XHRcdFwiYXV0aG9yXCI6IFwiUmljaGV2ZSBTLiBCZWJlZG9yXCIsXG5cdFx0XHRcImVNYWlsXCI6IFwicmljaGV2ZS5iZWJlZG9yQGdtYWlsLmNvbVwiLFxuXHRcdFx0XCJjb250cmlidXRvcnNcIjogW1xuXHRcdFx0XHRcIkpvaG4gTGVub24gTWFnaGFub3kgPGpvaG5sZW5vbm1hZ2hhbm95QGdtYWlsLmNvbT5cIixcblx0XHRcdFx0XCJWaW5zZSBWaW5hbG9uIDx2aW5zZXZpbmFsb25AZ21haWwuY29tPlwiXG5cdFx0XHRdLFxuXHRcdFx0XCJyZXBvc2l0b3J5XCI6IFwiaHR0cHM6Ly9naXRodWIuY29tL3ZvbGtvdmFzeXN0ZW1zL3RyYW5zcGhlci5naXRcIixcblx0XHRcdFwidGVzdFwiOiBcInRlc3QubW9kdWxlLmpzXCIsXG5cdFx0XHRcImdsb2JhbFwiOiB0cnVlXG5cdFx0fVxuXHRAZW5kLW1vZHVsZS1jb25maWd1cmF0aW9uXG5cblx0QG1vZHVsZS1kb2N1bWVudGF0aW9uOlxuXHRcdFRyYW5zZmVyIGFsbCBwcm9wZXJ0aWVzLlxuXG5cdFx0VGhpcyB3aWxsIHRyYW5zcGhlciBhbGwgbnVtYmVyIGFuZCBzdHJpbmcgb3duIHByb3BlcnRpZXMuXG5cblx0XHRJZiBkaXNyZWdhcmQgaXMgdHJ1ZSwgaXQgd2lsbCBkaXNyZWdhcmQgcHJvcGVydGllcyBvZiB0YXJnZXQgd2l0aCB2YWx1ZXMgYWxyZWFkeS5cblx0QGVuZC1tb2R1bGUtZG9jdW1lbnRhdGlvblxuXG5cdEBpbmNsdWRlOlxuXHRcdHtcblx0XHRcdFwiY29wcm9wXCI6IFwiY29wcm9wXCIsXG5cdFx0XHRcImZhbHp5XCI6IFwiZmFsenlcIixcblx0XHRcdFwia2VpblwiOiBcImtlaW5cIlxuXHRcdH1cblx0QGVuZC1pbmNsdWRlXG4qL1xuXG5jb25zdCBjb3Byb3AgPSByZXF1aXJlKCBcImNvcHJvcFwiICk7XG5jb25zdCBmYWx6eSA9IHJlcXVpcmUoIFwiZmFsenlcIiApO1xuY29uc3Qga2VpbiA9IHJlcXVpcmUoIFwia2VpblwiICk7XG5cbmNvbnN0IHRyYW5zcGhlciA9IGZ1bmN0aW9uIHRyYW5zcGhlciggc291cmNlLCB0YXJnZXQsIGRpc3JlZ2FyZCApe1xuXHQvKjtcblx0XHRAbWV0YS1jb25maWd1cmF0aW9uOlxuXHRcdFx0e1xuXHRcdFx0XHRcInNvdXJjZTpyZXF1aXJlZFwiOiBbXG5cdFx0XHRcdFx0XCJmdW5jdGlvblwiLFxuXHRcdFx0XHRcdFwib2JqZWN0XCJcblx0XHRcdFx0XSxcblx0XHRcdFx0XCJ0YXJnZXQ6cmVxdWlyZWRcIjogW1xuXHRcdFx0XHRcdFwiZnVuY3Rpb25cIixcblx0XHRcdFx0XHRcIm9iamVjdFwiXG5cdFx0XHRcdF0sXG5cdFx0XHRcdFwiZGlzcmVnYXJkXCI6IFwiYm9vbGVhblwiXG5cdFx0XHR9XG5cdFx0QGVuZC1tZXRhLWNvbmZpZ3VyYXRpb25cblx0Ki9cblxuXHRpZiggZmFsenkoIHNvdXJjZSApICl7XG5cdFx0dGhyb3cgbmV3IEVycm9yKCBcImludmFsaWQgc291cmNlXCIgKTtcblx0fVxuXG5cdGlmKCBmYWx6eSggdGFyZ2V0ICkgKXtcblx0XHR0aHJvdyBuZXcgRXJyb3IoIFwiaW52YWxpZCB0YXJnZXRcIiApO1xuXHR9XG5cblx0ZGlzcmVnYXJkID0gZGlzcmVnYXJkID09PSB0cnVlO1xuXG5cdGxldCBwcm9wZXJ0eUxpc3QgPSBPYmplY3QuZ2V0T3duUHJvcGVydHlOYW1lcyggc291cmNlICk7XG5cdGxldCBpbmRleCA9IHByb3BlcnR5TGlzdC5sZW5ndGg7XG5cdHdoaWxlKCBpbmRleC0tICl7XG5cdFx0bGV0IHByb3BlcnR5ID0gcHJvcGVydHlMaXN0WyBpbmRleCBdO1xuXG5cdFx0aWYoICFkaXNyZWdhcmQgKXtcblx0XHRcdGNvcHJvcCggcHJvcGVydHksIHNvdXJjZSwgdGFyZ2V0ICk7XG5cblx0XHR9ZWxzZSBpZiggIWtlaW4oIHByb3BlcnR5LCB0YXJnZXQgKSApe1xuXHRcdFx0Y29wcm9wKCBwcm9wZXJ0eSwgc291cmNlLCB0YXJnZXQgKTtcblx0XHR9XG5cdH1cblxuXHRyZXR1cm4gdGFyZ2V0O1xufTtcblxubW9kdWxlLmV4cG9ydHMgPSB0cmFuc3BoZXI7XG4iXX0=
 //# sourceMappingURL=transpher.support.js.map

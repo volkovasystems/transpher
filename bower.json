@@ -1,33 +1,35 @@
 {
-  "name": "transpher",
-  "version": "0.30.0",
-  "description": "Transfer all properties.",
-  "main": "transpher.deploy.js",
-  "support": "transpher.support.js",
-  "authors": [
-    "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
-    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
-    "Vinse Vinalon <vinsevinalon@gmail.com>"
-  ],
-  "license": "MIT",
-  "keywords": [
-    "transfer",
-    "all",
-    "property",
-    "transpher"
-  ],
-  "homepage": "https://github.com/volkovasystems/transpher",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "coprop": "^0.8.0",
-    "falzy": "^0.23.0",
-    "kein": "^0.30.0",
-    "wichevr": "^0.14.0"
-  }
+	"name": "transpher",
+	"version": "0.31.0",
+	"description": "Transfer all properties.",
+	"main": "transpher.deploy.js",
+	"support": "transpher.support.js",
+	"authors": [
+		"Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+		"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+		"Vinse Vinalon <vinsevinalon@gmail.com>"
+	],
+	"license": "MIT",
+	"keywords": [
+		"transfer",
+		"all",
+		"property",
+		"transpher"
+	],
+	"homepage": "https://github.com/volkovasystems/transpher",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"resolutions": {
+		"dscrb": "^0.8.0"
+	},
+	"dependencies": {
+		"coprop": "^0.9.0",
+		"falzy": "^0.23.0",
+		"kein": "^0.30.0"
+	}
 }
